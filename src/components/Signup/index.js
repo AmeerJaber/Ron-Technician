@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { signUpUserStart } from './../../redux/User/user.actions';
+import validator from 'validator';
+
 import './styles.scss';
 
 import AuthWrapper from './../AuthWrapper';
@@ -18,10 +20,54 @@ const Signup = props => {
   const history = useHistory();
   const { currentUser, userErr } = useSelector(mapState);
   const [displayName, setDisplayName] = useState('');
+  const [displayNameError, setDisplayNameError] = useState('');
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordConfirmError, setPasswordConfirmError] = useState('');
   const [errors, setErrors] = useState([]);
+
+  let validate = () => {
+    setDisplayNameError("");
+    setEmailError("");
+    setPasswordError("");
+    setPasswordConfirmError("");
+
+    if (!displayName) {
+      setDisplayNameError("Please enter username");
+    }
+
+    if (!validator.isEmail(email)) {
+      setEmailError("invalid email");
+    }
+
+    if (!email) {
+      setEmailError("Please enter an Email");
+    }
+
+    if (password.length < 8 ||  password.length > 20) {
+      setPasswordError("Password lenth must be from 8 to 20");
+    }
+
+    if (confirmPassword.length < 8 ||  confirmPassword.length > 20) {
+      setPasswordConfirmError("Password lenth must be from 8 to 20");
+    }
+
+
+    if (!password) {
+      setPasswordError("Please enter a password");
+    }
+
+    if (!confirmPassword) {
+      setPasswordConfirmError("Please enter password confirmation");
+    }
+
+    if(password!==confirmPassword){
+      setPasswordConfirmError("Password dosen't match");
+    }
+  };
 
   useEffect(() => {
     if (currentUser) {
@@ -30,13 +76,6 @@ const Signup = props => {
     }
 
   }, [currentUser]);
-
-  useEffect(() => {
-    if (Array.isArray(userErr) && userErr.length > 0) {
-      setErrors(userErr);
-    }
-
-  }, [userErr]);
 
   const reset = () => {
     setDisplayName('');
@@ -48,12 +87,15 @@ const Signup = props => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
+    validate();
+    if (!displayNameError && !emailError && !passwordError && !passwordConfirmError) {
     dispatch(signUpUserStart({
       displayName,
       email,
       password,
       confirmPassword
     }));
+  }
   }
 
   const configAuthWrapper = {
@@ -63,18 +105,6 @@ const Signup = props => {
   return (
     <AuthWrapper {...configAuthWrapper}>
       <div className="formWrap">
-
-        {errors.length > 0 && (
-          <ul>
-            {errors.map((err, index) => {
-              return (
-                <li key={index}>
-                  {err}
-                </li>
-              );
-            })}
-          </ul>
-        )}
 
         <form onSubmit={handleFormSubmit}>
 
@@ -86,6 +116,8 @@ const Signup = props => {
             handleChange={e => setDisplayName(e.target.value)}
           />
 
+          <div style={{ fontSize: 14, color: "red" }}>{displayNameError}</div>
+
           <FormInput
             type="email"
             name="email"
@@ -93,6 +125,8 @@ const Signup = props => {
             placeholder="Email"
             handleChange={e => setEmail(e.target.value)}
           />
+
+          <div style={{ fontSize: 14, color: "red" }}>{emailError}</div>
 
           <FormInput
             type="password"
@@ -102,6 +136,8 @@ const Signup = props => {
             handleChange={e => setPassword(e.target.value)}
           />
 
+          <div style={{ fontSize: 14, color: "red" }}>{passwordError}</div>
+
           <FormInput
             type="password"
             name="confirmPassword"
@@ -109,6 +145,8 @@ const Signup = props => {
             placeholder="Confirm Password"
             handleChange={e => setConfirmPassword(e.target.value)}
           />
+
+          <div style={{ fontSize: 14, color: "red" }}>{passwordConfirmError}</div>
 
           <Button type="submit">
             Register

@@ -24,7 +24,9 @@ const SignIn = props => {
   const [passwordError, setPasswordError] = useState('');
 
 let validate = () => {
-
+  setEmailError("");
+  setPasswordError("");
+  
     if (!validator.isEmail(email)) {
       setEmailError("invalid email");
     }
@@ -58,9 +60,7 @@ let validate = () => {
   const handleSubmit = e => {
     e.preventDefault();
     validate();
-    if (emailError || passwordError) {
-      setEmailError("");
-      setPasswordError("");
+    if (!emailError && !passwordError) {
       dispatch(emailSignInStart({ email, password }));
     }
   }
