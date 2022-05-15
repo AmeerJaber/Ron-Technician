@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { emailSignInStart, googleSignInStart } from './../../redux/User/user.actions';
+import validator from 'validator';
 
 import './styles.scss';
 
@@ -18,7 +19,28 @@ const SignIn = props => {
   const history = useHistory();
   const { currentUser } = useSelector(mapState);
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('')
+  const [emailError, setEmailError] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+let validate = () => {
+
+    if (!validator.isEmail(email)) {
+      setEmailError("invalid email");
+    }
+
+    if (!email) {
+      setEmailError("Please enter an Email");
+    }
+
+    if (password.length < 8 ||  password.length > 20) {
+      setPasswordError("Password lenth must be from 8 to 20");
+    }
+
+    if (!password) {
+      setPasswordError("Please enter a password");
+    }
+  };
 
   useEffect(() => {
     if (currentUser) {
@@ -35,7 +57,12 @@ const SignIn = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(emailSignInStart({ email, password }));
+    validate();
+    if (emailError || passwordError) {
+      setEmailError("");
+      setPasswordError("");
+      dispatch(emailSignInStart({ email, password }));
+    }
   }
 
   const handleGoogleSignIn = () => {
@@ -58,6 +85,7 @@ const SignIn = props => {
             placeholder="Email"
             handleChange={e => setEmail(e.target.value)}
           />
+          <div style={{ fontSize: 14, color: "red" }}>{emailError}</div>
 
           <FormInput
             type="password"
@@ -66,7 +94,7 @@ const SignIn = props => {
             placeholder="Password"
             handleChange={e => setPassword(e.target.value)}
           />
-
+          <div style={{ fontSize: 14, color: "red" }}>{passwordError}</div>
           <Button type="submit">
             LogIn
           </Button>
@@ -88,7 +116,6 @@ const SignIn = props => {
               Reset Password
             </Link>
           </div>
-
         </form>
       </div>
     </AuthWrapper>
