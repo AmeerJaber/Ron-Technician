@@ -6,7 +6,6 @@ import { CountryDropdown } from 'react-country-region-selector';
 import { apiInstance } from './../../Utils';
 import { selectCartTotal, selectCartItemsCount, selectCartItems } from './../../redux/Cart/cart.selectors';
 import { saveOrderHistory } from './../../redux/Orders/orders.actions';
-import { clearCart } from './../../redux/Cart/cart.actions';
 import { createStructuredSelector } from 'reselect';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -43,7 +42,7 @@ const PaymentDetails = () => {
       history.push('/dashboard');
     }
 
-  }, [itemCount]);
+  }, [itemCount]);// eslint-disable-line react-hooks/exhaustive-deps
 
   const handleShipping = evt => {
     const { name, value } = evt.target;

@@ -1,0 +1,173 @@
+[debug] [2022-05-15T17:41:26.700Z] ----------------------------------------------------------------------
+[debug] [2022-05-15T17:41:26.703Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Ameer\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js functions:shell
+[debug] [2022-05-15T17:41:26.704Z] CLI Version:   10.9.2
+[debug] [2022-05-15T17:41:26.704Z] Platform:      win32
+[debug] [2022-05-15T17:41:26.705Z] Node Version:  v16.13.1
+[debug] [2022-05-15T17:41:26.706Z] Time:          Sun May 15 2022 20:41:26 GMT+0300 (שעון ישראל (קיץ))
+[debug] [2022-05-15T17:41:26.707Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-15T17:41:26.827Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-15T17:41:26.828Z] > authorizing via signed-in user (ameerjaber97@gmail.com)
+[debug] [2022-05-15T17:41:26.828Z] [iam] checking project rontechnician-68174 for permissions ["firebase.projects.get"]
+[debug] [2022-05-15T17:41:26.832Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/rontechnician-68174:testIamPermissions [none]
+[debug] [2022-05-15T17:41:26.833Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/rontechnician-68174:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-05-15T17:41:34.291Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/rontechnician-68174:testIamPermissions 200
+[debug] [2022-05-15T17:41:34.291Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/rontechnician-68174:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-05-15T17:41:34.294Z] >>> HTTP REQUEST GET http://localhost:4400/emulators  
+ 
+[debug] [2022-05-15T17:41:34.305Z] Error: connect ECONNREFUSED 127.0.0.1:4400
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1161:16)
+[error] 
+[error] Error: Server Error. connect ECONNREFUSED 127.0.0.1:4400
+[debug] [2022-05-16T08:33:37.994Z] ----------------------------------------------------------------------
+[debug] [2022-05-16T08:33:37.998Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Ameer\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2022-05-16T08:33:37.999Z] CLI Version:   10.9.2
+[debug] [2022-05-16T08:33:37.999Z] Platform:      win32
+[debug] [2022-05-16T08:33:37.999Z] Node Version:  v16.13.1
+[debug] [2022-05-16T08:33:38.005Z] Time:          Mon May 16 2022 11:33:38 GMT+0300 (שעון ישראל (קיץ))
+[debug] [2022-05-16T08:33:38.006Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-16T08:33:38.239Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-16T08:33:38.240Z] > authorizing via signed-in user (ameerjaber97@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project rontechnician-68174. This may result in unexpected behavior. 
+[debug] [2022-05-16T08:33:38.274Z] [hub] writing locator at C:\Users\Ameer\AppData\Local\Temp\hub-rontechnician-68174.json
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
+[info] +  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-05-16T08:33:38.301Z] defaultcredentials: writing to file C:\Users\Ameer\AppData\Roaming\firebase\ameerjaber97_gmail_com_application_default_credentials.json
+[debug] [2022-05-16T08:33:38.303Z] Setting GAC to C:\Users\Ameer\AppData\Roaming\firebase\ameerjaber97_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Ameer\\AppData\\Roaming\\firebase\\ameerjaber97_gmail_com_application_default_credentials.json"}}
+[debug] [2022-05-16T08:33:38.306Z] > refreshing access token with scopes: []
+[debug] [2022-05-16T08:33:38.307Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-05-16T08:33:38.643Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Mon, 16 May 2022 08:33:38 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-05-16T08:33:38.663Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/rontechnician-68174/adminSdkConfig [none]
+[debug] [2022-05-16T08:33:39.090Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/rontechnician-68174/adminSdkConfig 200
+[debug] [2022-05-16T08:33:39.090Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/rontechnician-68174/adminSdkConfig {"projectId":"rontechnician-68174","storageBucket":"rontechnician-68174.appspot.com","locationId":"asia-south1"}
+[debug] [2022-05-16T08:33:39.116Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-05-16T08:33:39.117Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-05-16T08:33:39.117Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\Ameer\\.cache\\firebase\\emulators\\ui-v1.7.0\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\Ameer\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.7.0\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-05-16T08:33:39.411Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] i  functions: Watching "C:\Users\Ameer\Desktop\Test\RonTechnician\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\" for Cloud Functions..."}}
+[debug] [2022-05-16T08:33:39.679Z] Validating nodejs source
+[debug] [2022-05-16T08:33:44.678Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "stripe": "^9.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-05-16T08:33:44.678Z] Building nodejs source
+[debug] [2022-05-16T08:33:44.679Z] Analyzing nodejs backend spec
+[debug] [2022-05-16T08:33:44.681Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-05-16T08:33:45.393Z] Serving at port 9005
+
+[debug] [2022-05-16T08:33:45.759Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-05-16T08:33:45.771Z] shutdown requested via /__/quitquitquit
+
+[info] +  functions[us-central1-api]: http function initialized (http://localhost:5001/rontechnician-68174/us-central1/api). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/rontechnician-68174/us-central1/api)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ localhost:5001 │ http://localhost:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-05-16T08:34:57.723Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-05-16T08:34:57.725Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-05-16T08:34:57.726Z] Accepted request GET /rontechnician-68174/us-central1/api --> us-central1-api
+[debug] [2022-05-16T08:34:57.745Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2022-05-16T08:34:57.746Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2022-05-16T08:34:57.746Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-05-16T08:34:57.747Z] [worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: Assigning socketPath: \\?\pipe\C:\Users\Ameer\Desktop\Test\RonTechnician\functions\18132 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: Assigning socketPath: \\\\?\\pipe\\C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\18132"}}
+[debug] [2022-05-16T08:34:57.748Z] [worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: BUSY"}}
+[debug] [2022-05-16T08:35:00.335Z] [runtime-status] [18132] Functions runtime initialized. {"cwd":"C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions","node_version":"16.13.1"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\Ameer\\\\Desktop\\\\Test\\\\RonTechnician\\\\functions\",\"node_version\":\"16.13.1\"}"}}
+[debug] [2022-05-16T08:35:00.336Z] [runtime-status] [18132] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Disabled runtime features: undefined"}}
+[debug] [2022-05-16T08:35:00.342Z] [runtime-status] [18132] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.2.0","resolution":"C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.2.0\",\"resolution\":\"C:\\\\Users\\\\Ameer\\\\Desktop\\\\Test\\\\RonTechnician\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2022-05-16T08:35:00.344Z] [runtime-status] [18132] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.21.1","resolution":"C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.21.1\",\"resolution\":\"C:\\\\Users\\\\Ameer\\\\Desktop\\\\Test\\\\RonTechnician\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2022-05-16T08:35:00.345Z] [runtime-status] [18132] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-05-16T08:35:00.347Z] [runtime-status] [18132] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.21.1","resolution":"C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.21.1\",\"resolution\":\"C:\\\\Users\\\\Ameer\\\\Desktop\\\\Test\\\\RonTechnician\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2022-05-16T08:35:00.430Z] [runtime-status] [18132] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-05-16T08:35:00.430Z] [runtime-status] [18132] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.21.1","resolution":"C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\node_modules\\firebase-functions\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.21.1\",\"resolution\":\"C:\\\\Users\\\\Ameer\\\\Desktop\\\\Test\\\\RonTechnician\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}}"}}
+[debug] [2022-05-16T08:35:00.432Z] [runtime-status] [18132] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.21.1","resolution":"C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.21.1\",\"resolution\":\"C:\\\\Users\\\\Ameer\\\\Desktop\\\\Test\\\\RonTechnician\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2022-05-16T08:35:00.435Z] [runtime-status] [18132] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.2.0","resolution":"C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.2.0\",\"resolution\":\"C:\\\\Users\\\\Ameer\\\\Desktop\\\\Test\\\\RonTechnician\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2022-05-16T08:35:00.436Z] [runtime-status] [18132] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.21.1","resolution":"C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.21.1\",\"resolution\":\"C:\\\\Users\\\\Ameer\\\\Desktop\\\\Test\\\\RonTechnician\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2022-05-16T08:35:00.436Z] [runtime-status] [18132] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"10.2.0","resolution":"C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"10.2.0\",\"resolution\":\"C:\\\\Users\\\\Ameer\\\\Desktop\\\\Test\\\\RonTechnician\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2022-05-16T08:35:00.747Z] [runtime-status] [18132] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-05-16T08:35:00.749Z] [runtime-status] [18132] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Running api in signature http"}}
+[debug] [2022-05-16T08:35:00.754Z] [runtime-status] [18132] Attempting to listen to socketPath: \\?\pipe\C:\Users\Ameer\Desktop\Test\RonTechnician\functions\18132 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Attempting to listen to socketPath: \\\\?\\pipe\\C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\18132"}}
+[debug] [2022-05-16T08:35:00.758Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-05-16T08:35:00.758Z] [functions] Got req.url=/rontechnician-68174/us-central1/api, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/rontechnician-68174/us-central1/api, mapping to path=/"}}
+[debug] [2022-05-16T08:35:00.767Z] [runtime-status] [18132] Ephemeral server handling GET request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Ephemeral server handling GET request"}}
+[debug] [2022-05-16T08:35:00.778Z] [runtime-status] [18132] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-05-16T08:35:00.783Z] [worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: IDLE"}}
+[debug] [2022-05-16T08:35:00.784Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-05-16T08:35:01.059Z] Functions emulator received unknown request at path /favicon.ico
+[debug] [2022-05-16T08:35:52.500Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-05-16T08:35:52.500Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-05-16T08:35:52.500Z] Accepted request OPTIONS /rontechnician-68174/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-05-16T08:35:52.501Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-05-16T08:35:52.501Z] [worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: Assigning socketPath: \\?\pipe\C:\Users\Ameer\Desktop\Test\RonTechnician\functions\18132 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: Assigning socketPath: \\\\?\\pipe\\C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\18132"}}
+[debug] [2022-05-16T08:35:52.501Z] [worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: BUSY"}}
+[debug] [2022-05-16T08:35:52.503Z] [runtime-status] [18132] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-05-16T08:35:52.504Z] [runtime-status] [18132] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Running api in signature http"}}
+[debug] [2022-05-16T08:35:52.506Z] [runtime-status] [18132] Attempting to listen to socketPath: \\?\pipe\C:\Users\Ameer\Desktop\Test\RonTechnician\functions\18132 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Attempting to listen to socketPath: \\\\?\\pipe\\C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\18132"}}
+[debug] [2022-05-16T08:35:52.508Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-05-16T08:35:52.508Z] [functions] Got req.url=/rontechnician-68174/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/rontechnician-68174/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-05-16T08:35:52.511Z] [runtime-status] [18132] Ephemeral server handling OPTIONS request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Ephemeral server handling OPTIONS request"}}
+[debug] [2022-05-16T08:35:52.514Z] [runtime-status] [18132] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-05-16T08:35:52.516Z] [worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: IDLE"}}
+[debug] [2022-05-16T08:35:52.517Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-05-16T08:35:52.519Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-05-16T08:35:52.519Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-05-16T08:35:52.520Z] Accepted request POST /rontechnician-68174/us-central1/api/payments/create --> us-central1-api
+[debug] [2022-05-16T08:35:52.520Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-05-16T08:35:52.520Z] [worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: Assigning socketPath: \\?\pipe\C:\Users\Ameer\Desktop\Test\RonTechnician\functions\18132 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: Assigning socketPath: \\\\?\\pipe\\C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\18132"}}
+[debug] [2022-05-16T08:35:52.520Z] [worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: BUSY"}}
+[debug] [2022-05-16T08:35:52.528Z] [runtime-status] [18132] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-05-16T08:35:52.530Z] [runtime-status] [18132] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Running api in signature http"}}
+[debug] [2022-05-16T08:35:52.531Z] [runtime-status] [18132] Attempting to listen to socketPath: \\?\pipe\C:\Users\Ameer\Desktop\Test\RonTechnician\functions\18132 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Attempting to listen to socketPath: \\\\?\\pipe\\C:\\Users\\Ameer\\Desktop\\Test\\RonTechnician\\functions\\18132"}}
+[debug] [2022-05-16T08:35:52.532Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-05-16T08:35:52.533Z] [functions] Got req.url=/rontechnician-68174/us-central1/api/payments/create, mapping to path=/payments/create {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/rontechnician-68174/us-central1/api/payments/create, mapping to path=/payments/create"}}
+[debug] [2022-05-16T08:35:52.564Z] [runtime-status] [18132] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Ephemeral server handling POST request"}}
+[debug] [2022-05-16T08:35:52.568Z] [runtime-status] [18132] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [18132] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-05-16T08:35:52.570Z] [worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-902461c6-0769-4237-9795-1873f886806b]: IDLE"}}
+[debug] [2022-05-16T08:35:52.570Z] [work-queue] {"queueLength":0,"workRunningCount":0}
