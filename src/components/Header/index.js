@@ -31,7 +31,7 @@ const Header = props => {
       <div className="wrap">
         <div className="logo">
           <Link to="/">
-            <img src={Logo} alt="SimpleTut LOGO" />
+            <img src={Logo} alt="RonTechnician LOGO" />
           </Link>
         </div>
 
@@ -53,7 +53,7 @@ const Header = props => {
               </Link>
             </li>
             <li>
-              <Link to="/">
+              <Link to="/contact">
                 Contact
               </Link>
             </li>

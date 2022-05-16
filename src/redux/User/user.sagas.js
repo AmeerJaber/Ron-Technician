@@ -72,13 +72,6 @@ export function* signUpUser({ payload: {
   confirmPassword
 } }) {
 
-  if (password !== confirmPassword) {
-    const err = ['Password Don\'t match'];
-    yield put(
-      userError(err)
-    );
-    return;
-  }
 
   try {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);

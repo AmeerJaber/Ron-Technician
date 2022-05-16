@@ -1,6 +1,6 @@
-/**import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.scss";
-import { db } from "../../firebase/config";
+
 
 
 const Contact = () => {
@@ -10,7 +10,7 @@ const Contact = () => {
 
   const [loader, setLoader] = useState(false);
 
-  const handleSubmit = (e) => {
+  /**const handleSubmit = (e) => {
     e.preventDefault();
     setLoader(true);
 
@@ -22,7 +22,7 @@ const Contact = () => {
       })
       .then(() => {
         setLoader(false);
-        alert("Your message has been submitted👍");
+        alert("Your message has been submitted");
       })
       .catch((error) => {
         alert(error.message);
@@ -32,11 +32,11 @@ const Contact = () => {
     setName("");
     setEmail("");
     setMessage("");
-  };
+  };**/
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <h1>Contact Us 🤳</h1>
+    <form className="form" >
+      <h1>Contact Us</h1>
 
       <label>Name</label>
       <input
@@ -69,4 +69,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;**/
+export default Contact;

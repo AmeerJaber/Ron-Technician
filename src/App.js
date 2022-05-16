@@ -5,15 +5,17 @@ import { checkUserSession } from './redux/User/user.actions';
 
 // components
 import AdminToolbar from './components/AdminToolbar';
-
+import WorkerToolbar from './components/WorkerToolbar';
 // hoc
 import WithAuth from './hoc/withAuth';
 import WithAdminAuth from './hoc/withAdminAuth';
+import WithWorkerAuth from './hoc/withWorkerAuth';
 
 // layouts
 import MainLayout from './layouts/MainLayout';
 import HomepageLayout from './layouts/HomepageLayout';
 import AdminLayout from './layouts/AdminLayout';
+import WorkerLayout from './layouts/WorkerLayout';
 import DashboardLayout from './layouts/DashboardLayout';
 
 // pages
@@ -26,6 +28,7 @@ import Login from './pages/Login';
 import Recovery from './pages/Recovery';
 import Dashboard from './pages/Dashboard';
 import Admin from './pages/Admin';
+import Worker from './pages/Worker';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Payment from './pages/Payment';
@@ -43,6 +46,7 @@ const App = props => {
   return (
     <div className="App">
       <AdminToolbar />
+      <WorkerToolbar />
       <Switch>
         <Route exact path="/" render={() => (
           <HomepageLayout>
@@ -122,6 +126,13 @@ const App = props => {
               <Admin />
             </AdminLayout>
           </WithAdminAuth>
+        )} />
+        <Route path="/worker" render={() => (
+          <WithWorkerAuth>
+            <WorkerLayout>
+              <Worker />
+            </WorkerLayout>
+          </WithWorkerAuth>
         )} />
       </Switch>
     </div>
