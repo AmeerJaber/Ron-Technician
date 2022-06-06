@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { fetchProductsStart } from './../../redux/Products/products.actions';
+import { fetchProductsStart} from './../../redux/Products/products.actions';
 import Product from './Product';
 import FormSelect from './../forms/FormSelect';
 import LoadMore from './../LoadMore';
 import './styles.scss';
 
+
 const mapState = ({ productsData }) => ({
   products: productsData.products
 });
 
-const ProductResults = ({ }) => {
+const ProductResults = ({  }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { filterType } = useParams();
@@ -19,9 +20,11 @@ const ProductResults = ({ }) => {
 
   const { data, queryDoc, isLastPage } = products;
 
+  const { keyword } = useParams();
+
   useEffect(() => {
     dispatch(
-      fetchProductsStart({ filterType })
+      fetchProductsStart({filterType })
     )
   }, [filterType]);
 
@@ -44,7 +47,7 @@ const ProductResults = ({ }) => {
   const configFilters = {
     defaultValue: filterType,
     options: [{
-      name: 'Show all',
+      name: 'הצג הכל',
       value: ''
     }, {
       name: 'חלקי חילוף',

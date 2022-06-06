@@ -15,7 +15,8 @@ export const handleAddProduct = product => {
   });
 }
 
-export const handleFetchProducts = ({ filterType, startAfterDoc, persistProducts=[] }) => {
+export const handleFetchProducts = ({
+   filterType, startAfterDoc, persistProducts=[] }) => {
   return new Promise((resolve, reject) => {
     const pageSize = 6;
 
@@ -50,6 +51,7 @@ export const handleFetchProducts = ({ filterType, startAfterDoc, persistProducts
       })
   })
 }
+
 
 export const handleDeleteProduct = documentID => {
   return new Promise((resolve, reject) => {

@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
-
+import { db } from "../../firebase/config";
 
 
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
+  const timestamp = new Date();
   const [loader, setLoader] = useState(false);
 
-  /**const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoader(true);
 
     db.collection("contacts")
       .add({
+        createdDate: timestamp,
         name: name,
         email: email,
         message: message,
@@ -32,10 +33,10 @@ const Contact = () => {
     setName("");
     setEmail("");
     setMessage("");
-  };**/
+  };
 
   return (
-    <form className="form" >
+    <form className="form" onSubmit={handleSubmit}>
       <h1>Contact Us</h1>
 
       <label>Name</label>
