@@ -6,13 +6,14 @@ const mapState = ({ user }) => ({
   currentUser: user.currentUser
 })
 const Worker = () => {
-
+  const [startDate, setStartDate] = useState(new Date());
   const { currentUser } = useSelector(mapState);
   const [hours, setHours] = useState("");
   const [sales, setSales] = useState("");
   const [loader, setLoader] = useState(false);
   const { displayName } = currentUser;
   const timestamp = new Date();
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,15 +39,14 @@ const Worker = () => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <><form className="form" onSubmit={handleSubmit}>
       <h1>Daily working form</h1>
 
       <label>Working Hours</label>
       <input
         placeholder="Hours"
         value={hours}
-        onChange={(e) => setHours(e.target.value)}
-      />
+        onChange={(e) => setHours(e.target.value)} />
 
       <label>Sales</label>
       <textarea
@@ -57,11 +57,12 @@ const Worker = () => {
 
       <button
         type="submit"
-        style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
-      >
+        style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}>
         Submit
       </button>
-    </form>
+
+
+    </form></>
   );
 };
 

@@ -22,6 +22,7 @@ import DashboardLayout from './layouts/DashboardLayout';
 import Homepage from './pages/Homepage';
 import Search from './pages/Search';
 import Contact from './pages/Contact';
+import Booking from './pages/Booking';
 import About from './pages/About';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
@@ -58,6 +59,11 @@ const App = props => {
             <Contact />
           </MainLayout>
         )} />
+        <Route exact path="/booking" render={() => (
+          <MainLayout>
+            <Booking />
+          </MainLayout>
+        )} />
         <Route exact path="/search" render={() => (
           <MainLayout>
             <Search />
@@ -69,6 +75,11 @@ const App = props => {
           </MainLayout>
         )} />
         <Route path="/search/:filterType" render={() => (
+          <MainLayout>
+            <Search />
+          </MainLayout>
+        )} />
+                <Route path="/search/:keyword" render={() => (
           <MainLayout>
             <Search />
           </MainLayout>

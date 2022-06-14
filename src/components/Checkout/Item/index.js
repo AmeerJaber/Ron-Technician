@@ -45,14 +45,14 @@ const Item = (product) => {
           <td>
             <span className="cartBtn"
               onClick={() => handleReduceItem(product)}>
-              {`< `}
+              {`− `}
             </span>
             <span>
               {quantity}
             </span>
             <span className="cartBtn"
               onClick={() => handleAddProduct(product)}>
-              {` >`}
+              {` +`}
             </span>
           </td>
           <td>
