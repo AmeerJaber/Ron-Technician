@@ -1,35 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from "react-hook-form";
 import FormInput from './../../components/forms/FormInput';
 import { db } from "../../firebase/config";
+import { Link, useHistory } from 'react-router-dom';
 
-
+const mapState = ({ user }) => ({
+  currentUser: user.currentUser
+});
 const Booking = () => {
-  
   const {
-    register,
     formState: { errors },
   } = useForm();
+
   var dateControl = document.querySelector('input[type="date"]');
   var timeControl = document.querySelector('select[name="time"]');
   var placeControl = document.querySelector('select[name="place"]');
   const [appointmentTime, setAppoinmentTime] = useState('');
   const [appointmentPlace, setAppoinmentPlace] = useState('');
+  const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const [loader, setLoader] = useState(false);
+  const [user, setUser] = useState(false);
+  const history = useHistory();
+  const { currentUser } = useSelector(mapState);
+  var displayName='';
+  useEffect(() => {
+    if (currentUser) {
+      logged();
+    }
+
+  }, [currentUser]);
+
+  const logged = () => {
+    displayName=JSON.stringify(currentUser);
+  }
 
   const handleSubmit = (e) => {
+    validate();
+    console.log(errors.appointmentDate);
     e.preventDefault();
     setLoader(true);
+    if(placeControl.value!=='DEFAULT' && timeControl.value!=='DEFAULT'){
 
     db.collection("booking")
       .add({
-        name:"",
-        date: "",
-        time: "",
+        name: name,
+        date: dateControl.value,
+        time: timeControl.value,
+        place:placeControl.value,
         phone: phone,
-        address: "",
+        address: address,
       })
       .then(() => {
         setLoader(false);
@@ -39,11 +61,10 @@ const Booking = () => {
         alert(error.message);
         setLoader(false);
       });
+    }
   };
 
-  if(dateControl && timeControl){
-    console.log(dateControl.value,timeControl.value);
-  }
+
   let validate = () => {
   if(appointmentTime==='' && timeControl.value==='DEFAULT'){
     setAppoinmentTime('Appointment Time is required');
@@ -61,26 +82,25 @@ const Booking = () => {
 
           return(
           <form onSubmit={handleSubmit}>
+
+          <label htmlFor="from">Full Name: </label><FormInput
+              required
+              placeholder="Name"
+              name="Name"
+              value={name}
+              type="text"
+              handleChange={e => setName(e.target.value)} />
+
               <><div className="relative">
                 <p className="font-bold text-xl uppercase">
                   Appointment Date
                 </p>
                 <input
+                required
                   type="date"
-                  className={`w-full h-16 text-2xl rounded-lg ${errors.appointmentDate &&
-                    " focus:border-red-500 focus:ring-red-500 border-red-500"}`}
-                  {...register("appointmentDate", {
-                    required: {
-                      value: true,
-                      message: "Appointment date is required",
-                    },
-                  })} />
-              </div><div>
-                  {errors.appointmentDate && (
-                    <span style={{ fontSize: 14, color: "red" }}>
-                      {errors.appointmentDate.message}
-                    </span>
-                  )}
+                  />
+              
+                  
                 </div></>
                 
               
@@ -110,7 +130,7 @@ const Booking = () => {
 
                 <label htmlFor="from">Phone Number: </label>
                 <FormInput
-                  placeholder="Phone Number"
+                  placeholder="Phone Format: 05xxxxxxxx"
                   name="phone_number"
                   value={phone}
                   type="text"
@@ -125,6 +145,7 @@ const Booking = () => {
                   value={address}
                   type="text"
                   handleChange={e => setAddress(e.target.value)} />
+                  <br/>
                 
                 <input
                   type="submit"
