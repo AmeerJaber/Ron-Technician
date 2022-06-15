@@ -25,6 +25,7 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
+import ViewList from './pages/ViewList';
 import Recovery from './pages/Recovery';
 import Dashboard from './pages/Dashboard';
 import Admin from './pages/Admin';
@@ -99,6 +100,12 @@ const App = props => {
           render={() => (
             <MainLayout>
               <Login />
+            </MainLayout>
+          )} />
+        <Route path="/ViewList"
+          render={() => (
+            <MainLayout>
+              <ViewList />
             </MainLayout>
           )} />
         <Route path="/recovery" render={() => (
