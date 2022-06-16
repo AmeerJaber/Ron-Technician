@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { db } from "../../firebase/config";
 import { useSelector } from 'react-redux'
-
+import { useHistory } from "react-router-dom";
+import { jsPDF } from "jspdf";
 const mapState = ({ user }) => ({
   currentUser: user.currentUser
 })
@@ -14,6 +15,21 @@ const Worker = () => {
   const { displayName } = currentUser;
   const timestamp = new Date();
  
+  let history = useHistory();
+
+
+  const doc = new jsPDF();
+  function downloadPDF(){
+
+    const doc = new jsPDF();
+    doc.text("Hello world!", 10, 10);
+    doc.save("booking-list.pdf"); // will save the file in the current working directory
+  };
+
+
+  function handleClick() {
+    history.push("/ViewList");
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +55,7 @@ const Worker = () => {
   };
 
   return (
-    <><form className="form" onSubmit={handleSubmit}>
+    <><><form className="form" onSubmit={handleSubmit}>
       <h1>Daily working form</h1>
 
       <label>Working Hours</label>
@@ -62,7 +78,17 @@ const Worker = () => {
       </button>
 
 
-    </form></>
+    </form><button
+      type="submit"
+      onClick={downloadPDF}>
+        Download booking as PDF
+      </button></><button
+        type="submit"
+        onClick={handleClick}>
+        View list
+      </button></>
+
+      
   );
 };
 
