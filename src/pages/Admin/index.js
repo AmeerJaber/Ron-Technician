@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import { addProductStart, fetchProductsStart, deleteProductStart } from './../../redux/Products/products.actions';
 import Modal from './../../components/Modal';
 import FormInput from './../../components/forms/FormInput';
@@ -22,6 +23,7 @@ const Admin = props => {
   const [productThumbnail, setProductThumbnail] = useState('');
   const [productPrice, setProductPrice] = useState(0);
   const [productDesc, setProductDesc] = useState('');
+  let history = useHistory();
 
   const { data, queryDoc, isLastPage } = products;
 
@@ -46,6 +48,11 @@ const Admin = props => {
     setProductPrice(0);
     setProductDesc('');
   };
+
+    function handleClick() {
+    history.push("/WorkersForm");
+    window.location.reload(false);
+  }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -219,7 +226,11 @@ const Admin = props => {
             </tr>
           </tbody>
         </table>
-
+        <button
+        type="submit"
+        onClick={handleClick}>
+        view worker form
+      </button>
       </div>
 
     </div>
