@@ -26,6 +26,8 @@ const Booking = () => {
   const history = useHistory();
   const { currentUser } = useSelector(mapState);
   var displayName='';
+
+
   useEffect(() => {
     if (currentUser) {
       logged();
@@ -36,6 +38,14 @@ const Booking = () => {
   const logged = () => {
     displayName=JSON.stringify(currentUser);
   }
+
+  const disablePastDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate() + 1).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+};
 
   const handleSubmit = (e) => {
     validate();
@@ -98,6 +108,7 @@ const Booking = () => {
                 <input
                 required
                   type="date"
+                  min={disablePastDate()}
                   />
               
                   
