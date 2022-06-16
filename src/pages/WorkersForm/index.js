@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { db } from "../../firebase/config";
 import './styles.scss';
-
-const ViewList = () => {
+const WorkersForm = () => {
   
     const [info , setInfo] = useState([]);
   
@@ -14,7 +13,7 @@ const ViewList = () => {
   
     // Fetch the required data using the get() method
     const Fetchdata = ()=>{
-        db.collection("booking").get().then((querySnapshot) => {
+        db.collection("workersForm").get().then((querySnapshot) => {
              
             // Loop through the data and store
             // it in array to display
@@ -30,15 +29,15 @@ const ViewList = () => {
     return (
         <div>
             <center>
-            <h2>Booking List</h2>
+            <h2>Worker Form</h2>
             </center>
           
         {
-            info.map((booking,pos) => (
+            info.map((workersForm,pos) => (
             <Frame key={pos}
-                    name={booking.name}
-                    address={booking.address}
-                    date={booking.date} />
+                    name={workersForm.workerName}
+                    hours={workersForm.workingHours}
+                    sales={workersForm.message} />
             ))
         }
         </div>
@@ -47,7 +46,7 @@ const ViewList = () => {
 }
   
 // Define how each display entry will be structured
-const Frame = ({name , address , date}) => {
+const Frame = ({name , hours , sales}) => {
     return (
         <center>
             <div className="div" >
@@ -55,14 +54,14 @@ const Frame = ({name , address , date}) => {
 <p>NAME : {name}<br/>
    
                   
-Address : {address}<br/>
+Hours : {hours}<br/>
   
                   
-Date : {date}<br/></p>
+Sales : {sales}<br/></p>
    
             </div>
         </center>
     );
 }
   
-export default ViewList;
+export default WorkersForm;

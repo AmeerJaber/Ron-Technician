@@ -27,6 +27,7 @@ import About from './pages/About';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
 import ViewList from './pages/ViewList';
+import WorkersForm from './pages/WorkersForm';
 import Recovery from './pages/Recovery';
 import Dashboard from './pages/Dashboard';
 import Admin from './pages/Admin';
@@ -113,10 +114,16 @@ const App = props => {
               <Login />
             </MainLayout>
           )} />
-        <Route path="/ViewList"
+        <Route path="/viewList"
           render={() => (
             <MainLayout>
               <ViewList />
+            </MainLayout>
+          )} />
+        <Route path="/workersForm"
+          render={() => (
+            <MainLayout>
+              <WorkersForm />
             </MainLayout>
           )} />
         <Route path="/recovery" render={() => (

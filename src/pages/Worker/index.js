@@ -60,12 +60,14 @@ const Worker = () => {
 
       <label>Working Hours</label>
       <input
+      required
         placeholder="Hours"
         value={hours}
         onChange={(e) => setHours(e.target.value)} />
 
       <label>Sales</label>
       <textarea
+      required
         placeholder="Sales"
         value={sales}
         onChange={(e) => setSales(e.target.value)}
