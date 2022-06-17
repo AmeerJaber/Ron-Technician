@@ -22,11 +22,13 @@ const SignIn = props => {
   const [emailError, setEmailError] = useState('');
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
-
-let validate = () => {
+  const [error, setError] = useState();
+  var timeoutID;
+  const [count, setCount] = useState(0);
+  let validate = () => {
   setEmailError("");
   setPasswordError("");
-  
+  setError("");
     if (!validator.isEmail(email)) {
       setEmailError("invalid email");
     }
@@ -45,23 +47,29 @@ let validate = () => {
   };
 
   useEffect(() => {
+    clearTimeout(timeoutID);
     if (currentUser) {
       resetForm();
       history.push('/');
     }
-
-  }, [currentUser]);
+    return () => clearTimeout(timeoutID);
+  }, [count,currentUser]);
 
   const resetForm = () => {
     setEmail('');
     setPassword('');
+    setError('');
   };
 
   const handleSubmit = e => {
+    setCount(count + 1);
     e.preventDefault();
     validate();
     if (!emailError && !passwordError) {
       dispatch(emailSignInStart({ email, password }));
+      timeoutID=setTimeout(function () {
+        setError('Invaild email or password');
+    }, 5000);
     }
   }
 
@@ -75,7 +83,7 @@ let validate = () => {
 
   return (
     <AuthWrapper {...configAuthWrapper}>
-      <div className="formWrap">
+      <div className="formWrapfetc">
         <form onSubmit={handleSubmit}>
 
           <FormInput
@@ -95,6 +103,8 @@ let validate = () => {
             handleChange={e => setPassword(e.target.value)}
           />
           <div style={{ fontSize: 14, color: "red" }}>{passwordError}</div>
+
+          <div style={{ fontSize: 14, color: "red" }}>{error}</div>
           <Button type="submit">
             LogIn
           </Button>
