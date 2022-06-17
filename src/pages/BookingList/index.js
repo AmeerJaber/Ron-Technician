@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { db } from "../../firebase/config";
 import './styles.scss';
 
-const ViewList = () => {
+const BookingList = () => {
   
     const [info , setInfo] = useState([]);
   
@@ -29,8 +29,12 @@ const ViewList = () => {
     // Display the result on the page
     return (
         <div>
-            <center>
-            <h2>Booking List</h2>
+            <button
+                type="submit"
+                onClick={window.print}>
+                Download booking as PDF
+            </button><center>
+                <h2>Booking List</h2>
             </center>
           
         {
@@ -65,4 +69,4 @@ Date : {date}<br/></p>
     );
 }
   
-export default ViewList;
+export default BookingList;

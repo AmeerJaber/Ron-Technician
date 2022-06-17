@@ -26,7 +26,7 @@ import Booking from './pages/Booking';
 import About from './pages/About';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
-import ViewList from './pages/ViewList';
+import BookingList from './pages/BookingList';
 import WorkersForm from './pages/WorkersForm';
 import Recovery from './pages/Recovery';
 import Dashboard from './pages/Dashboard';
@@ -114,10 +114,10 @@ const App = props => {
               <Login />
             </MainLayout>
           )} />
-        <Route path="/viewList"
+        <Route path="/bookingList"
           render={() => (
             <MainLayout>
-              <ViewList />
+              <BookingList />
             </MainLayout>
           )} />
         <Route path="/workersForm"

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { db } from "../../firebase/config";
 import { useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
-import { jsPDF } from "jspdf";
+
 const mapState = ({ user }) => ({
   currentUser: user.currentUser
 })
@@ -17,18 +17,11 @@ const Worker = () => {
  
   let history = useHistory();
 
-
-  const doc = new jsPDF();
-  function downloadPDF(){
-
-    const doc = new jsPDF();
-    doc.text("Hello world!", 10, 10);
-    doc.save("booking-list.pdf"); // will save the file in the current working directory
-  };
-
+  const [info , setInfo] = useState([]);
 
   function handleClick() {
-    history.push("/ViewList");
+    history.push("/BookingList");
+    window.location.reload(false);
   }
 
   const handleSubmit = (e) => {
@@ -80,11 +73,7 @@ const Worker = () => {
       </button>
 
 
-    </form><button
-      type="submit"
-      onClick={downloadPDF}>
-        Download booking as PDF
-      </button></><button
+    </form></><button
         type="submit"
         onClick={handleClick}>
         View list

@@ -102,9 +102,9 @@ const Booking = () => {
               handleChange={e => setName(e.target.value)} />
 
               <><div className="relative">
-                <p className="font-bold text-xl uppercase">
+                <div className="font-bold text-xl uppercase">
                   Appointment Date
-                </p>
+                </div>
                 <input
                 required
                   type="date"

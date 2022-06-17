@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { db } from "../../firebase/config";
 import './styles.scss';
+
 const WorkersForm = () => {
   
     const [info , setInfo] = useState([]);
@@ -13,14 +14,13 @@ const WorkersForm = () => {
   
     // Fetch the required data using the get() method
     const Fetchdata = ()=>{
-        db.collection("workersForm").get().then((querySnapshot) => {
+        db.collection("workersForm").orderBy('createdDate','desc').get().then((querySnapshot) => {
              
             // Loop through the data and store
             // it in array to display
             querySnapshot.forEach(element => {
                 var data = element.data();
                 setInfo(arr => [...arr , data]);
-                  
             });
         })
     }
@@ -37,7 +37,7 @@ const WorkersForm = () => {
             <Frame key={pos}
                     name={workersForm.workerName}
                     hours={workersForm.workingHours}
-                    sales={workersForm.message} />
+                    sales={workersForm.sales} />
             ))
         }
         </div>
@@ -47,18 +47,19 @@ const WorkersForm = () => {
   
 // Define how each display entry will be structured
 const Frame = ({name , hours , sales}) => {
+    console.log(name + " " + hours + " " + sales);
     return (
-        <center>
-            <div className="div" >
-                  
-<p>NAME : {name}<br/>
-   
-                  
-Hours : {hours}<br/>
-  
-                  
-Sales : {sales}<br/></p>
-   
+    <center>
+            <div className="div">
+
+                <p>NAME: {name}<br />
+
+
+                    Hours: {hours}<br />
+
+
+                    Sales: {sales}<br /></p>
+
             </div>
         </center>
     );
