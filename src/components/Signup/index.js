@@ -27,8 +27,9 @@ const Signup = props => {
   const [passwordError, setPasswordError] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordConfirmError, setPasswordConfirmError] = useState('');
-  const [errors, setErrors] = useState([]);
-
+  const [error, setError] = useState([]);
+  var timeoutID;
+  
   let validate = () => {
     setDisplayNameError("");
     setEmailError("");
@@ -74,8 +75,9 @@ const Signup = props => {
     if (currentUser) {
       reset();
       history.push('/');
+      clearTimeout(timeoutID);
     }
-
+    clearTimeout(timeoutID);
   }, [currentUser]);
 
   const reset = () => {
@@ -83,7 +85,6 @@ const Signup = props => {
     setEmail('');
     setPassword('');
     setConfirmPassword('');
-    setErrors([]);
   };
 
   const handleFormSubmit = event => {
@@ -96,6 +97,9 @@ const Signup = props => {
       password,
       confirmPassword
     }));
+    timeoutID=setTimeout(() => {
+      setError('User already exists');
+    }, "4000")
   }
   }
 
@@ -150,6 +154,7 @@ const Signup = props => {
           />
 
           <div style={{ fontSize: 14, color: "red" }}>{passwordConfirmError}</div>
+          <div style={{ fontSize: 14, color: "red" }}>{error}</div>
           <div className="footer"><center>
           <Button type="submit" className="btn">
             הרשמה
