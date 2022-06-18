@@ -36,6 +36,7 @@ const WorkersForm = () => {
             info.map((workersForm,pos) => (
             <Frame key={pos}
                     name={workersForm.workerName}
+                    date={workersForm.createdDate}
                     hours={workersForm.workingHours}
                     sales={workersForm.sales} />
             ))
@@ -46,13 +47,16 @@ const WorkersForm = () => {
 }
   
 // Define how each display entry will be structured
-const Frame = ({name , hours , sales}) => {
-    console.log(name + " " + hours + " " + sales);
+const Frame = ({name , hours , sales, date}) => {
+    console.log(name + " " + date + " " + hours + " " + sales," " );
     return (
     <center>
             <div className="div">
 
                 <p>NAME: {name}<br />
+
+
+                    Date: {date}<br />
 
 
                     Hours: {hours}<br />

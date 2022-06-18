@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { db } from "../../firebase/config";
 import Button from './../../components/forms/Button';
-import './styles.scss';
 
-const BookingList = () => {
+const ContactList = () => {
   
     const [info , setInfo] = useState([]);
   
@@ -15,7 +14,7 @@ const BookingList = () => {
   
     // Fetch the required data using the get() method
     const Fetchdata = ()=>{
-        db.collection("booking").get().then((querySnapshot) => {
+        db.collection("emails").get().then((querySnapshot) => {
              
             // Loop through the data and store
             // it in array to display
@@ -30,20 +29,17 @@ const BookingList = () => {
     // Display the result on the page
     return (
         <div>
-            <Button
-                type="submit"
-                onClick={window.print}>
-                Download booking as PDF
-            </Button><center>
-                <h2>Booking List</h2>
+            <center>
+                <h2>Emails</h2>
             </center>
           
         {
             info.map((booking,pos) => (
             <Frame key={pos}
                     name={booking.name}
-                    address={booking.address}
-                    date={booking.date} />
+                    email={booking.email}
+                    date={booking.createdDate} 
+                    message={booking.message}/>
             ))
         }
         </div>
@@ -52,7 +48,7 @@ const BookingList = () => {
 }
   
 // Define how each display entry will be structured
-const Frame = ({name , address , date}) => {
+const Frame = ({name , email , date , message}) => {
     return (
         <center>
             <div className="div" >
@@ -60,14 +56,17 @@ const Frame = ({name , address , date}) => {
 <p>NAME : {name}<br/>
    
                   
-Address : {address}<br/>
+Email : {email}<br/>
   
                   
-Date : {date}<br/></p>
+Date : {date}<br/>
+
+
+Message : {message}<br/></p>
    
             </div>
         </center>
     );
 }
   
-export default BookingList;
+export default ContactList;

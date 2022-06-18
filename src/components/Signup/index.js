@@ -69,6 +69,7 @@ const Signup = props => {
     }
   };
 
+
   useEffect(() => {
     if (currentUser) {
       reset();

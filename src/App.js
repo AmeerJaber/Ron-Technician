@@ -27,6 +27,7 @@ import About from './pages/About';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
 import BookingList from './pages/BookingList';
+import ContactList from './pages/ContactList';
 import WorkersForm from './pages/WorkersForm';
 import Recovery from './pages/Recovery';
 import Dashboard from './pages/Dashboard';
@@ -118,6 +119,12 @@ const App = props => {
           render={() => (
             <MainLayout>
               <BookingList />
+            </MainLayout>
+          )} />
+                  <Route path="/contactList"
+          render={() => (
+            <MainLayout>
+              <ContactList />
             </MainLayout>
           )} />
         <Route path="/workersForm"

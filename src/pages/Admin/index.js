@@ -54,6 +54,16 @@ const Admin = props => {
     window.location.reload(false);
   }
 
+  function handleClick2() {
+    history.push("/BookingList");
+    window.location.reload(false);
+  }
+
+  function handleClick3() {
+    history.push("/ContactList");
+    window.location.reload(false);
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -85,17 +95,30 @@ const Admin = props => {
 
   return (
     <div className="admin">
-
+<div class="btn-group">
       <div className="callToActions">
         <ul>
           <li>
             <Button onClick={() => toggleModal()}>
               Add new product
             </Button>
+
+            <Button onClick={() => handleClick()}>
+            Workers form
+            </Button>
+
+            <Button onClick={() => handleClick2()}>
+            Booking list
+            </Button>
+            
+            <Button onClick={() => handleClick3()}>
+            Emails
+            </Button>
+
           </li>
         </ul>
       </div>
-
+      </div>
       <Modal {...configModal}>
         <div className="addNewProductForm">
           <form onSubmit={handleSubmit}>
@@ -226,11 +249,6 @@ const Admin = props => {
             </tr>
           </tbody>
         </table>
-        <button
-        type="submit"
-        onClick={handleClick}>
-        view worker form
-      </button>
       </div>
 
     </div>

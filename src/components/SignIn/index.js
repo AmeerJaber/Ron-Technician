@@ -13,6 +13,7 @@ import Button from './../forms/Button';
 const mapState = ({ user }) => ({
   currentUser: user.currentUser
 });
+var timeoutID;
 
 const SignIn = props => {
   const dispatch = useDispatch();
@@ -23,8 +24,7 @@ const SignIn = props => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [error, setError] = useState();
-  var timeoutID;
-  const [count, setCount] = useState(0);
+
   let validate = () => {
   setEmailError("");
   setPasswordError("");
@@ -46,14 +46,15 @@ const SignIn = props => {
     }
   };
 
-  useEffect(() => {
-    clearTimeout(timeoutID);
-    if (currentUser) {
-      resetForm();
-      history.push('/');
-    }
-    return () => clearTimeout(timeoutID);
-  }, [count,currentUser]);
+
+    useEffect(() => {
+      if (currentUser) {
+        resetForm();
+        history.push('/');
+        clearTimeout(timeoutID);
+      }
+     clearTimeout(timeoutID);
+    }, [currentUser]);
 
   const resetForm = () => {
     setEmail('');
@@ -62,14 +63,13 @@ const SignIn = props => {
   };
 
   const handleSubmit = e => {
-    setCount(count + 1);
     e.preventDefault();
     validate();
     if (!emailError && !passwordError) {
       dispatch(emailSignInStart({ email, password }));
-      timeoutID=setTimeout(function () {
+      timeoutID=setTimeout(() => {
         setError('Invaild email or password');
-    }, 5000);
+      }, "5000")
     }
   }
 
