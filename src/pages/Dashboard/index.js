@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserOrderHistory } from './../../redux/Orders/orders.actions';
 import OrderHistory from './../../components/OrderHistory';
-import './styles.scss';
+
 
 const mapState = ({ user, ordersData }) => ({
   currentUser: user.currentUser,
@@ -21,10 +21,10 @@ const Dashboard = props => {
   }, []);
 
   return (
-    <div>
-      <h1>
-        Order History
-      </h1>
+    <div className='main-content'>
+      <label style={{ fontSize: 40}}>
+        הזמנות שלי
+      </label>
 
       <OrderHistory orders={orderHistory} />
     </div>

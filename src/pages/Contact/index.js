@@ -29,7 +29,7 @@ const Contact = () => {
       })
       .then(() => {
         setLoader(false);
-        alert("Your message has been submitted");
+        alert("מייל נשלח בהצלחה");
       })
       .catch((error) => {
         alert(error.message);
@@ -42,10 +42,10 @@ const Contact = () => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <h1>Contact Us</h1>
+    <form className="form" onSubmit={handleSubmit}>      
+     <label style={{ fontSize: 40}} >צור קשר</label><br/>
 
-      <label>Name</label>
+      <label>שם מלא:</label>
       <input
       required
         placeholder="Name"
@@ -53,7 +53,7 @@ const Contact = () => {
         onChange={(e) => setName(e.target.value)}
       />
 
-      <label>Email</label>
+      <label>מייל:</label>
       <input
       required
         placeholder="Email"
@@ -61,7 +61,7 @@ const Contact = () => {
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      <label>Message</label>
+      <label>הודעה:</label>
       <textarea
       required
         placeholder="Message"
@@ -72,7 +72,7 @@ const Contact = () => {
       <Button
         type="submit"
       >
-        Submit
+        שלח
       </Button>
     </form>
   );

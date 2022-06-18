@@ -68,7 +68,7 @@ const ProductCard = ({}) => {
           <li>
             <div className="addToCart">
               <Button {...configAddToCartBtn} onClick={() => handleAddToCart(product)}>
-                Add to cart
+                הוספה לסל
               </Button>
             </div>
           </li>

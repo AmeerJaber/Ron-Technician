@@ -23,16 +23,16 @@ const Order = () => {
   }, []);
 
   return (
-    <div>
+    <div className='main-content'>
 
       <h1>
-        Order ID: #{orderID}
+        מספר הזמנה: #{orderID}
       </h1>
 
       <OrderDetails order={orderDetails} />
 
       <h3>
-        Total: {orderTotal}
+      סה"כ: ₪{orderTotal}
       </h3>
 
     </div>

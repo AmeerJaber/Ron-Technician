@@ -39,27 +39,27 @@ const Header = props => {
           <ul>
             <li>
               <Link to="/">
-                Home
+                דף ראשי
               </Link>
             </li>
             <li>
               <Link to="/search">
-                Search
+                חיפוש מוצרים
               </Link>
             </li>
             <li>
               <Link to="/booking">
-                Technician
+                זימון טכנאי
               </Link>
             </li>
             <li>
               <Link to="/contact">
-                Contact
+                צור קשר
               </Link>
             </li>
             <li>
               <Link to="/about">
-                About
+                על החברה
               </Link>
             </li>
           </ul>
@@ -71,7 +71,7 @@ const Header = props => {
 
             <li>
               <Link to="/cart">
-                Your Cart ({totalNumCartItems})
+                הסל שלי ({totalNumCartItems})
                 <i className="fas fa-shopping-basket"></i>
               </Link>
             </li>
@@ -79,13 +79,13 @@ const Header = props => {
             {currentUser && [
               <li key={1}>
                 <Link to="/dashboard">
-                  My Account
+                חשבון שלי
                   <i className="fas fa-user-circle"></i>
                 </Link>
               </li>,
               <li key={2}>
                 <span onClick={() => signOut()}>
-                  LogOut
+                  יציאה
                   <i className="fas fa-sign-out-alt"></i>
                 </span>
               </li>
@@ -94,12 +94,12 @@ const Header = props => {
             {!currentUser && [
               <li key={1} className="hideOnMobile">
                 <Link to="/registration">
-                  Register
+                  הרשמה
                 </Link>
               </li>,
               <li key={2}>
                 <Link to="/login">
-                  Login
+                  כניסה
                   <i className="fas fa-user-circle"></i>
                 </Link>
               </li>

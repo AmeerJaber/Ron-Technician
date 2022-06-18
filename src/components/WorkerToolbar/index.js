@@ -19,7 +19,7 @@ const WorkerToolbar = props => {
       <ul>
         <li>
           <Link to="/worker">
-            My worker
+            סרגל עובד
           </Link>
         </li>
       </ul>

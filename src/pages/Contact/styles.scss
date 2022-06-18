@@ -25,6 +25,7 @@ button {
 
 /* Contact.js */
 .form {
+  direction: rtl;  /* Right to Left */
   display: flex;
   flex-direction: column;
   justify-content: center;

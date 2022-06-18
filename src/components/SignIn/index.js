@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { emailSignInStart, googleSignInStart } from './../../redux/User/user.actions';
 import validator from 'validator';
 import loginImg from '../../assets/login.jpg';
-
+import './styles.scss';
 
 import AuthWrapper from './../AuthWrapper';
 import FormInput from './../forms/FormInput';
@@ -69,7 +69,7 @@ const SignIn = props => {
       dispatch(emailSignInStart({ email, password }));
       timeoutID=setTimeout(() => {
         setError('Invaild email or password');
-      }, "5000")
+      }, "6000")
     }
   }
 
@@ -78,7 +78,7 @@ const SignIn = props => {
   }
 
   const configAuthWrapper = {
-    headline: 'LogIn'
+    headline: 'כניסה'
   };
 
   return (
@@ -108,28 +108,30 @@ const SignIn = props => {
           <div style={{ fontSize: 14, color: "red" }}>{passwordError}</div>
 
           <div style={{ fontSize: 14, color: "red" }}>{error}</div>
+          <center>
           <div className="footer">
-          <button type="submit"className="btn">
-            LogIn
-          </button>
+          
+          <Button type="submit"className="btn">
+            כניסה
+          </Button>
           </div>
           <div className="socialSignin">
             <div className="row">
             <div className="footer">
-              <button onClick={handleGoogleSignIn} className="btn">
-                Sign in with Google
-              </button>
+              <Button onClick={handleGoogleSignIn} className="btn">
+                Google כניסה דרך חשבון
+              </Button>
               </div>
             </div>
-          </div>
+          </div></center>
 
           <div className="links">
             <Link to="/registration">
-              Register
+              הרשמה
             </Link>
             {` | `}
             <Link to="/recovery">
-              Reset Password
+              איפוס סיסמה
             </Link>
           </div>
         </form>

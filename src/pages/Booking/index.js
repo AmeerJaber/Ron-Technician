@@ -5,7 +5,7 @@ import FormInput from './../../components/forms/FormInput';
 import { db } from "../../firebase/config";
 import { Link, useHistory } from 'react-router-dom';
 import Button from './../../components/forms/Button';
-
+import './style.scss';
 const mapState = ({ user }) => ({
   currentUser: user.currentUser
 });
@@ -66,7 +66,7 @@ const Booking = () => {
       })
       .then(() => {
         setLoader(false);
-        alert("Booking has been submitted");
+        alert("תור נשלח בהצלחה");
       })
       .catch((error) => {
         alert(error.message);
@@ -93,8 +93,8 @@ const Booking = () => {
 
           return(
           <form onSubmit={handleSubmit}>
-
-          <label htmlFor="from">Full Name: </label><FormInput
+            <div className='main-content'>
+          <label htmlFor="from">שם מלא: </label><FormInput
               required
               placeholder="Name"
               name="Name"
@@ -104,7 +104,7 @@ const Booking = () => {
 
               <><div className="relative">
                 <div className="font-bold text-xl uppercase">
-                  Appointment Date
+                  בחירת תאריך:
                 </div>
                 <input
                 required
@@ -116,9 +116,9 @@ const Booking = () => {
                 </div></>
                 
               
-                <label htmlFor="from">Choose Time: </label>
+                <label htmlFor="from">בחירת שעה:</label>
                 <select name="time" id="from" defaultValue={"DEFAULT"}>
-                <option value="DEFAULT" disabled> -- select an option -- </option>
+                <option value="DEFAULT" disabled> -- בחר -- </option>
                   <option value="7:30-9:30">7:30-9:30</option>
                   <option value="9:30-11:30">9:30-11:30</option>
                   <option value="11:30-13:30">11:30-13:30</option>
@@ -127,9 +127,9 @@ const Booking = () => {
                 </select>
                 <div style={{ fontSize: 14, color: "red" }}>{appointmentTime}</div>
                 
-                <label htmlFor="from">Choose Place: </label>
+                <label htmlFor="from">אזור: </label>
                 <select name="place" id="from" defaultValue={"DEFAULT"}>
-                <option value="DEFAULT" disabled> -- select an option -- </option>
+                <option value="DEFAULT" disabled> -- בחר -- </option>
                   <option value="צפון">צפון</option>
                   <option value="חיפה">חיפה</option>
                   <option value="תל אביב">תל אביב</option>
@@ -140,7 +140,7 @@ const Booking = () => {
                 </select>
                 <div style={{ fontSize: 14, color: "red" }}>{appointmentPlace}</div>
 
-                <label htmlFor="from">Phone Number: </label>
+                <label htmlFor="from">מספר פלאפון: </label>
                 <FormInput
                   placeholder="Phone Format: 05xxxxxxxx"
                   name="phone_number"
@@ -149,7 +149,7 @@ const Booking = () => {
                   pattern="[0][5][0-9]{8}" required
                   handleChange={e => setPhone(e.target.value)} />
 
-                <label htmlFor="from">Address: </label>
+                <label htmlFor="from">כתובת: </label>
                 <FormInput
                 required
                   placeholder="Address"
@@ -158,10 +158,12 @@ const Booking = () => {
                   type="text"
                   handleChange={e => setAddress(e.target.value)} />
                   <br/>
-                
+                <center>
                   <Button
                   type="submit">
-                  Book Appointment</Button>
+                  זימון תור</Button></center>
+                  </div>
+
             </form>
           );
   };

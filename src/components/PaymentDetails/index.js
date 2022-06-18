@@ -145,7 +145,7 @@ const PaymentDetails = () => {
 
         <div className="group">
           <h2>
-            Shipping Address
+            כתובת למשלוח
           </h2>
 
           <FormInput
@@ -219,7 +219,7 @@ const PaymentDetails = () => {
 
         <div className="group">
           <h2>
-            Billing Address
+            כתובת לחיוב
           </h2>
 
           <FormInput
@@ -293,7 +293,7 @@ const PaymentDetails = () => {
 
         <div className="group">
           <h2>
-            Card Details
+            פרטי כרטיס
           </h2>
 
           <CardElement
@@ -304,7 +304,7 @@ const PaymentDetails = () => {
         <Button
           type="submit"
         >
-          Pay Now
+          שלם עכשיו
         </Button>
 
       </form>

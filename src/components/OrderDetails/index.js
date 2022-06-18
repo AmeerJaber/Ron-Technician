@@ -13,15 +13,15 @@ const columns = [
   },
   {
     id: 'productName',
-    label: 'Name'
+    label: 'שם מוצר'
   },
   {
     id: 'productPrice',
-    label: 'Price'
+    label: 'מחיר'
   },
   {
     id: 'quantity',
-    label: 'Quantity'
+    label: 'כמות'
   }
 ]
 

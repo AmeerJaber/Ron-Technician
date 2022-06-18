@@ -9,15 +9,15 @@ import { useHistory } from 'react-router-dom';
 const columns = [
   {
     id: 'orderCreatedDate',
-    lable: 'Order Date'
+    lable: 'תאריך הזמנה'
   },
   {
     id: 'documentID',
-    lable: 'Order ID'
+    lable: 'מספר הזמה'
   },
   {
     id: 'orderTotal',
-    lable: 'Amount'
+    lable: 'כמות'
   }
 ];
 

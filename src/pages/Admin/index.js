@@ -100,19 +100,19 @@ const Admin = props => {
         <ul>
           <li>
             <Button onClick={() => toggleModal()}>
-              Add new product
+            הוספת מוצר חדש
             </Button>
 
             <Button onClick={() => handleClick()}>
-            Workers form
+            טופס עובדים
             </Button>
 
             <Button onClick={() => handleClick2()}>
-            Booking list
+            רשימת תורים
             </Button>
             
             <Button onClick={() => handleClick3()}>
-            Emails
+           מיילים
             </Button>
 
           </li>
@@ -123,42 +123,42 @@ const Admin = props => {
         <div className="addNewProductForm">
           <form onSubmit={handleSubmit}>
 
-            <h2>
-              Add new product
-            </h2>
-
+            <label style={{ fontSize: 28}}>
+              הוספת מוצר חדש
+            </label>
+          
             <FormSelect
-              label="Category"
+              label="סוג מוצר"
               options={[{
                 value: "parts",
-                name: "Parts"
+                name: "חלקים"
               }, {
                 value: "dispensers",
-                name: "dispensers"
+                name: "מתקני מים"
               },
               {
                 value: "filters",
-                name: "filters"
+                name: "פלטרים"
               }]}
               handleChange={e => setProductCategory(e.target.value)}
             />
 
             <FormInput
-              label="Name"
+              label="שם מוצר"
               type="text"
               value={productName}
               handleChange={e => setProductName(e.target.value)}
             />
 
             <FormInput
-              label="Main image URL"
+              label="קישור תמונה"
               type="url"
               value={productThumbnail}
               handleChange={e => setProductThumbnail(e.target.value)}
             />
 
             <FormInput
-              label="Price"
+              label="מחיר"
               type="number"
               min="0.00"
               max="10000.00"
@@ -174,7 +174,7 @@ const Admin = props => {
             <br />
 
             <Button type="submit">
-              Add product
+              הוסף מוצר
             </Button>
 
           </form>
@@ -188,7 +188,7 @@ const Admin = props => {
             <tr>
               <th>
                 <h1>
-                  Manage Products
+                 ניהול מוצרים
                 </h1>
               </th>
             </tr>
@@ -217,7 +217,7 @@ const Admin = props => {
                           </td>
                           <td>
                             <Button onClick={() => dispatch(deleteProductStart(documentID))}>
-                              Delete
+                              מחיקה
                             </Button>
                           </td>
                         </tr>

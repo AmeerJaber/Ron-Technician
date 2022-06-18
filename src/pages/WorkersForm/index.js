@@ -29,7 +29,7 @@ const WorkersForm = () => {
     return (
         <div>
             <center>
-            <h2>Worker Form</h2>
+            <label  style={{ fontSize: 30}}>טופס עובדים</label>
             </center>
           
         {
@@ -48,21 +48,20 @@ const WorkersForm = () => {
   
 // Define how each display entry will be structured
 const Frame = ({name , hours , sales, date}) => {
-    console.log(name + " " + date + " " + hours + " " + sales," " );
     return (
     <center>
-            <div className="div">
+            <div className="main-content">
 
-                <p>NAME: {name}<br />
-
-
-                    Date: {date}<br />
+                <p> שם: {name}<br />
 
 
-                    Hours: {hours}<br />
+                    תאריך: {date}<br />
 
 
-                    Sales: {sales}<br /></p>
+                    שעות: {hours}<br />
+
+
+                    מכירות: {sales}<br /></p>
 
             </div>
         </center>

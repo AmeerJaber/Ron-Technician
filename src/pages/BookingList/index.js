@@ -30,12 +30,13 @@ const BookingList = () => {
     // Display the result on the page
     return (
         <div>
+            <div className='main-content'>
             <Button
                 type="submit"
                 onClick={window.print}>
-                Download booking as PDF
+                הורדת התורים כקובץ
             </Button><center>
-                <h2>Booking List</h2>
+                <label style={{ fontSize: 30}}>רשימת תורים</label>
             </center>
           
         {
@@ -43,27 +44,34 @@ const BookingList = () => {
             <Frame key={pos}
                     name={booking.name}
                     address={booking.address}
-                    date={booking.date} />
+                    date={booking.date}
+                    time={booking.time}
+                    place={booking.place} 
+                    phone={booking.phone}/>
             ))
         }
         </div>
-  
+        </div>
     );
 }
   
 // Define how each display entry will be structured
-const Frame = ({name , address , date}) => {
+const Frame = ({name , address , date , time , place , phone}) => {
     return (
         <center>
-            <div className="div" >
+            <div className="main-content" >
                   
-<p>NAME : {name}<br/>
-   
+<p>שם: {name}<br/>
+              
+כתובת: {address}<br/>
                   
-Address : {address}<br/>
-  
-                  
-Date : {date}<br/></p>
+תאריך: {date}<br/>
+
+זמן: {time}<br/>
+
+תאריך: {place}<br/>
+
+פלפאון: {phone}<br/></p>
    
             </div>
         </center>

@@ -6,7 +6,7 @@ const LoadMore = ({
 }) => {
   return (
     <Button onClick={() => onLoadMoreEvt()}>
-      Load More
+     טעון עוד מוצרים
     </Button>
   );
 };

@@ -16,12 +16,12 @@ const Checkout = ({ }) => {
   const history = useHistory();
   const { cartItems, total } = useSelector(mapState);
 
-  const errMsg = 'You have no items in your cart.';
+  const errMsg = '.אין לך מוצרים בתוך הסל קניות';
 
   return (
     <div className="checkout">
       <h1>
-        Checkout
+        עגלת הקניות
       </h1>
 
       <div className="cart">
@@ -34,19 +34,19 @@ const Checkout = ({ }) => {
                     <tbody>
                       <tr>
                         <th>
-                          Product
+                          מוצר
                         </th>
                         <th>
-                          Description
+                          תיאור
                         </th>
                         <th>
-                          Quantity
+                          כמות
                         </th>
                         <th>
-                          Price
+                          מחיר
                         </th>
                         <th>
-                          Remove
+                          הסר
                         </th>
                       </tr>
                     </tbody>
@@ -81,7 +81,7 @@ const Checkout = ({ }) => {
                               <tr>
                                 <td>
                                 <h3>
-                                  Total: ₪{total}
+                                 סה"כ:  ₪{total} 
                                 </h3>
                                 </td>
                               </tr>
@@ -96,12 +96,12 @@ const Checkout = ({ }) => {
                               <tr>
                                 <td>
                                   <Button onClick={() => history.goBack()}>
-                                    Continue Shopping
+                                    המשך בקניות
                                   </Button>
                                 </td>
                                 <td>
                                   <Button onClick={() => history.push('/payment')}>
-                                    Checkout
+                                   לתשלום
                                   </Button>
                                 </td>
                               </tr>

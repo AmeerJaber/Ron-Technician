@@ -20,18 +20,20 @@ const DashBoardLayout = props => {
       <div className="controlPanel">
         <div className="sidebar">
           <VerticalNav>
+          <center>
             <ul>
               <li>
                 <Link to="/dashboard">
-                  Home
+                  דף ראשי
                 </Link>
               </li>
               <li>
                 <span className="signOut" onClick={() => signOut()}>
-                  Sign Out
+                  יציאה
                 </span>
               </li>
             </ul>
+            </center>
           </VerticalNav>
         </div>
         <div className="content">

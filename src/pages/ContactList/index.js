@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { db } from "../../firebase/config";
-import Button from './../../components/forms/Button';
+
 
 const ContactList = () => {
   
@@ -28,11 +28,8 @@ const ContactList = () => {
       
     // Display the result on the page
     return (
-        <div>
-            <center>
-                <h2>Emails</h2>
-            </center>
-          
+        <div><center>
+                <label style={{ fontSize: 30}}>מיילים</label></center>
         {
             info.map((booking,pos) => (
             <Frame key={pos}
@@ -51,18 +48,18 @@ const ContactList = () => {
 const Frame = ({name , email , date , message}) => {
     return (
         <center>
-            <div className="div" >
+            <div className="main-content" >
                   
-<p>NAME : {name}<br/>
+<p>שם: {name}<br/>
    
                   
-Email : {email}<br/>
+מייל: {email}<br/>
   
                   
-Date : {date}<br/>
+תאריך: {date}<br/>
 
 
-Message : {message}<br/></p>
+הודעה: {message}<br/></p>
    
             </div>
         </center>

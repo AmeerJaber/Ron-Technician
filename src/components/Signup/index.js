@@ -100,7 +100,7 @@ const Signup = props => {
   }
 
   const configAuthWrapper = {
-    headline: 'Registration'
+    headline: 'הרשמה'
   };
 
   return (
@@ -150,20 +150,20 @@ const Signup = props => {
           />
 
           <div style={{ fontSize: 14, color: "red" }}>{passwordConfirmError}</div>
-          <div className="footer">
+          <div className="footer"><center>
           <Button type="submit" className="btn">
-            Register
+            הרשמה
           </Button>
-          </div>
+          </center> </div>
         </form>
 
         <div className="links">
           <Link to="/login">
-            LogIn
+            כניסה
           </Link>
           {` | `}
           <Link to="/recovery">
-            Reset Password
+            איפוס סיסמה
             </Link>
         </div>
       </div>

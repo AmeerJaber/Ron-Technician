@@ -3,6 +3,7 @@ import { db } from "../../firebase/config";
 import { useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import Button from './../../components/forms/Button';
+import './style.scss';
 
 const mapState = ({ user }) => ({
   currentUser: user.currentUser
@@ -38,7 +39,7 @@ const Worker = () => {
         sales: sales,
       })
       .then(() => {
-        alert("Form has been submitted");
+        alert("טופס נשלח בהצלחה");
       })
       .catch((error) => {
         alert(error.message);
@@ -48,21 +49,22 @@ const Worker = () => {
   };
 
   return (
+    <div className="main-content">
     <><Button
       type="submit"
       onClick={handleClick}>
-      View list
+      רשימת תורים
     </Button><><><form className="form" onSubmit={handleSubmit}>
-      <h1>Daily working form</h1>
+      <label style={{ fontSize: 40}}>טופס עובד</label>
 
-      <label>Working Hours</label>
+      <label>שעות עבודה</label>
       <input
         required
         placeholder="Hours"
         value={hours}
         onChange={(e) => setHours(e.target.value)} />
 
-      <label>Sales</label>
+      <label>מכירות</label>
       <textarea
         required
         placeholder="Sales"
@@ -72,12 +74,12 @@ const Worker = () => {
 
       <Button
         type="submit">
-        Submit
+        שלח
       </Button>
 
 
     </form></></></>
-
+    </div>
       
   );
 };

@@ -38,7 +38,7 @@ const ProductResults = ({  }) => {
     return (
       <div className="products">
         <p>
-          No search results.
+          .אין תוצאה לחיפוש
         </p>
       </div>
     );
@@ -79,9 +79,9 @@ const ProductResults = ({  }) => {
   return (
     <div className="products">
 
-      <h1>
-        Browse Products
-      </h1>
+      <label style={{ fontSize: 40}}>
+        חפש מוצרים
+      </label>
 
       <FormSelect {...configFilters} />
 
