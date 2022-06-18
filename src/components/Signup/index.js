@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { signUpUserStart } from './../../redux/User/user.actions';
 import validator from 'validator';
-
+import loginImg from '../../assets/login.jpg';
 import './styles.scss';
 
 import AuthWrapper from './../AuthWrapper';
@@ -106,7 +106,9 @@ const Signup = props => {
   return (
     <AuthWrapper {...configAuthWrapper}>
       <div className="formWrap">
-
+      <div className="image">
+              <img src={loginImg} />
+            </div>
         <form onSubmit={handleFormSubmit}>
 
           <FormInput
@@ -148,10 +150,11 @@ const Signup = props => {
           />
 
           <div style={{ fontSize: 14, color: "red" }}>{passwordConfirmError}</div>
-
-          <Button type="submit">
+          <div className="footer">
+          <Button type="submit" className="btn">
             Register
           </Button>
+          </div>
         </form>
 
         <div className="links">

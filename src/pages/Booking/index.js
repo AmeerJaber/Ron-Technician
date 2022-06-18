@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import FormInput from './../../components/forms/FormInput';
 import { db } from "../../firebase/config";
 import { Link, useHistory } from 'react-router-dom';
+import Button from './../../components/forms/Button';
 
 const mapState = ({ user }) => ({
   currentUser: user.currentUser
@@ -158,10 +159,9 @@ const Booking = () => {
                   handleChange={e => setAddress(e.target.value)} />
                   <br/>
                 
-                <input
-                  type="submit"
-                  value="Book Appointment" />
-
+                  <Button
+                  type="submit">
+                  Book Appointment</Button>
             </form>
           );
   };

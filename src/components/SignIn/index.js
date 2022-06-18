@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { emailSignInStart, googleSignInStart } from './../../redux/User/user.actions';
 import validator from 'validator';
+import loginImg from '../../assets/login.jpg';
 
-import './styles.scss';
 
 import AuthWrapper from './../AuthWrapper';
 import FormInput from './../forms/FormInput';
@@ -84,6 +84,9 @@ const SignIn = props => {
   return (
     <AuthWrapper {...configAuthWrapper}>
       <div className="formWrapfetc">
+      <div className="image">
+              <img src={loginImg} />
+            </div>
         <form onSubmit={handleSubmit}>
 
           <FormInput
@@ -105,15 +108,18 @@ const SignIn = props => {
           <div style={{ fontSize: 14, color: "red" }}>{passwordError}</div>
 
           <div style={{ fontSize: 14, color: "red" }}>{error}</div>
-          <Button type="submit">
+          <div className="footer">
+          <button type="submit"className="btn">
             LogIn
-          </Button>
-
+          </button>
+          </div>
           <div className="socialSignin">
             <div className="row">
-              <Button onClick={handleGoogleSignIn}>
+            <div className="footer">
+              <button onClick={handleGoogleSignIn} className="btn">
                 Sign in with Google
-              </Button>
+              </button>
+              </div>
             </div>
           </div>
 
