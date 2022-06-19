@@ -16,7 +16,7 @@ const Checkout = ({ }) => {
   const history = useHistory();
   const { cartItems, total } = useSelector(mapState);
 
-  const errMsg = '.אין לך מוצרים בתוך הסל קניות';
+  const errMsg = '.אין לך מוצרים בתוך סל הקניות';
 
   return (
     <div className="checkout">
