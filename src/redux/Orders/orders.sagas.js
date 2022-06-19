@@ -24,11 +24,16 @@ export function* onGetUserOrderHistoryStart() {
 
 export function* saveOrder({ payload }) {
   try {
-    const timestamps = new Date();
+    const timestamp = new Date();
+    const date=timestamp.getDate()+
+  "/"+(timestamp.getMonth()+1)+
+  "/"+timestamp.getFullYear();
+  const time=timestamp.getHours()+
+  ":"+(timestamp.getMinutes());
     yield handleSaveOrder({
       ...payload,
       orderUserID: auth.currentUser.uid,
-      orderCreatedDate: timestamps
+      orderCreatedDate: date+" "+time+" "
     });
     yield put(
       clearCart()

@@ -64,6 +64,11 @@ const Admin = props => {
     window.location.reload(false);
   }
 
+  function handleClick4() {
+    history.push("/OrderList");
+    window.location.reload(false);
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -113,6 +118,10 @@ const Admin = props => {
             
             <Button onClick={() => handleClick3()}>
            מיילים
+            </Button>
+
+            <Button onClick={() => handleClick4()}>
+           הזמנות
             </Button>
 
           </li>
