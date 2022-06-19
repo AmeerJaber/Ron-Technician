@@ -101,7 +101,7 @@ const Checkout = ({ }) => {
                                 </td>
                                 <td>
                                   <Button onClick={() => history.push('/payment')}>
-                                   לתשלום
+                                   מעבר לתשלום
                                   </Button>
                                 </td>
                               </tr>

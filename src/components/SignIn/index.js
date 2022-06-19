@@ -69,7 +69,7 @@ const SignIn = props => {
       dispatch(emailSignInStart({ email, password }));
       timeoutID=setTimeout(() => {
         setError('Invaild email or password');
-      }, "6000")
+      }, "7000")
     }
   }
 
@@ -83,10 +83,10 @@ const SignIn = props => {
 
   return (
     <AuthWrapper {...configAuthWrapper}>
-      <div className="formWrapfetc"><center>
+      <div className="formWrapfetc">
       <div className="image">
               <img src={loginImg} />
-            </div></center>
+            </div>
         <form onSubmit={handleSubmit}>
 
           <FormInput
@@ -135,8 +135,8 @@ const SignIn = props => {
             </Link>
           </div>
         </form>
-      </div>
-    </AuthWrapper>
+        </div>
+     </AuthWrapper>
   );
 }
 
