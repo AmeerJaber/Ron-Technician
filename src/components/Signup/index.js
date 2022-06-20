@@ -109,10 +109,11 @@ const Signup = props => {
 
   return (
     <AuthWrapper {...configAuthWrapper}>
-      <div className="formWrap"><center>
+      <div className="formWrap">
+      <div className='wrap'>
       <div className="image">
               <img src={loginImg} />
-            </div></center>
+            </div>
         <form onSubmit={handleFormSubmit}>
 
           <FormInput
@@ -171,6 +172,7 @@ const Signup = props => {
             איפוס סיסמה
             </Link>
         </div>
+      </div>
       </div>
     </AuthWrapper>
   );

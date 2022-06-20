@@ -84,7 +84,8 @@ const SignIn = props => {
   return (
     <AuthWrapper {...configAuthWrapper}>
       <div className="formWrapfetc">
-      <div className="image">
+        <div className='wrap'>
+        <div className="image">
               <img src={loginImg} />
             </div>
         <form onSubmit={handleSubmit}>
@@ -135,6 +136,7 @@ const SignIn = props => {
             </Link>
           </div>
         </form>
+        </div>
         </div>
      </AuthWrapper>
   );
