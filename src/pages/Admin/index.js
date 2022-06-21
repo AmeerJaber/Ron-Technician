@@ -100,7 +100,7 @@ const Admin = props => {
 
   return (
     <div className="admin">
-<div class="btn-group">
+<div className="btn-group">
       <div className="callToActions">
         <ul>
           <li>
