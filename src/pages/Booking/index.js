@@ -92,15 +92,13 @@ const Booking = () => {
 }
 
           return(
-          <form onSubmit={handleSubmit}>
-            <div className='main-content'>
-          <label htmlFor="from">שם מלא: </label><FormInput
+          <form  className="form" onSubmit={handleSubmit}>
+          <label htmlFor="from">שם מלא: </label><input
               required
               placeholder="Name"
               name="Name"
               value={name}
-              type="text"
-              handleChange={e => setName(e.target.value)} />
+              handleChange={e => setName(e.target.value)} /><br/>
 
               <><div className="relative">
                 <div className="font-bold text-xl uppercase">
@@ -141,16 +139,15 @@ const Booking = () => {
                 <div style={{ fontSize: 14, color: "red" }}>{appointmentPlace}</div>
 
                 <label htmlFor="from">מספר פלאפון: </label>
-                <FormInput
+                <input
                   placeholder="Phone Format: 05xxxxxxxx"
                   name="phone_number"
                   value={phone}
-                  type="text"
                   pattern="[0][5][0-9]{8}" required
-                  handleChange={e => setPhone(e.target.value)} />
+                  handleChange={e => setPhone(e.target.value)} /><br/>
 
                 <label htmlFor="from">כתובת: </label>
-                <FormInput
+                <textarea
                 required
                   placeholder="Address"
                   name="Address"
@@ -162,7 +159,6 @@ const Booking = () => {
                   <Button
                   type="submit">
                   זימון תור</Button></center>
-                  </div>
 
             </form>
           );
