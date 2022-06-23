@@ -29,6 +29,7 @@ import Login from './pages/Login';
 import BookingList from './pages/BookingList';
 import ContactList from './pages/ContactList';
 import OrderList from './pages/OrderList';
+import ModifyWorker from './pages/ModifyWorker';
 import WorkersForm from './pages/WorkersForm';
 import Recovery from './pages/Recovery';
 import Dashboard from './pages/Dashboard';
@@ -132,6 +133,12 @@ const App = props => {
           render={() => (
             <MainLayout>
               <OrderList />
+            </MainLayout>
+          )} />
+        <Route path="/modifyWorker"
+          render={() => (
+            <MainLayout>
+              <ModifyWorker />
             </MainLayout>
           )} />
         <Route path="/workersForm"

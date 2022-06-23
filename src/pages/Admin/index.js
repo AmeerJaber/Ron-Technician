@@ -68,6 +68,10 @@ const Admin = props => {
     history.push("/OrderList");
     window.location.reload(false);
   }
+  function handleClick5() {
+    history.push("/ModifyWorker");
+  }
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -122,6 +126,10 @@ const Admin = props => {
 
             <Button onClick={() => handleClick4()}>
            הזמנות
+            </Button>
+
+            <Button onClick={() => handleClick5()}>
+           עדכן עובד
             </Button>
 
           </li>
