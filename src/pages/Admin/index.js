@@ -70,6 +70,7 @@ const Admin = props => {
   }
   function handleClick5() {
     history.push("/ModifyWorker");
+    window.location.reload(false);
   }
 
 

@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { fetchProductsStart} from './../../redux/Products/products.actions';
+import Button from './../forms/Button';
 import Product from './Product';
 import FormSelect from './../forms/FormSelect';
 import LoadMore from './../LoadMore';
@@ -20,7 +21,7 @@ const ProductResults = ({  }) => {
 
   const { data, queryDoc, isLastPage } = products;
 
-  const { keyword } = useParams();
+  const [keyword, setKeyword] = useState('');
 
   useEffect(() => {
     dispatch(
@@ -62,6 +63,16 @@ const ProductResults = ({  }) => {
     handleChange: handleFilter
   };
 
+  const searchHandler = (e) => {
+    e.preventDefault()
+    var el = document.getElementById("myInputID");
+    el.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+      }
+    });
+}
+
   const handleLoadMore = () => {
     dispatch(
       fetchProductsStart({
@@ -82,13 +93,16 @@ const ProductResults = ({  }) => {
       <label style={{ fontSize: 40}}>
         חפש מוצרים
       </label>
-
+      <form onSubmit={searchHandler}>
+            <input type="text" placeholder="חפש מוצר.." name="search"
+              onChange={(e) => setKeyword(e.target.value)}></input>
+          </form>
       <FormSelect {...configFilters} />
 
       <div className="productResults">
         {data.map((product, pos) => {
           const { productThumbnail, productName, productPrice } = product;
-          if (!productThumbnail || !productName ||
+          if (!productThumbnail || !productName || !productName.includes(keyword) ||
             typeof productPrice === 'undefined') return null;
 
           const configProduct = {

@@ -84,11 +84,6 @@ const App = props => {
             <Search />
           </MainLayout>
         )} />
-                <Route path="/search/:keyword" render={() => (
-          <MainLayout>
-            <Search />
-          </MainLayout>
-        )} />
         <Route path="/product/:productID" render={() => (
           <MainLayout>
             <ProductDetails />

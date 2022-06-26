@@ -16,7 +16,7 @@ export const handleAddProduct = product => {
 }
 
 export const handleFetchProducts = ({
-   filterType, startAfterDoc, persistProducts=[] }) => {
+   filterType, startAfterDoc, persistProducts=[] ,keyword}) => {
   return new Promise((resolve, reject) => {
     const pageSize = 6;
 
@@ -24,7 +24,6 @@ export const handleFetchProducts = ({
 
     if (filterType) ref = ref.where('productCategory', '==', filterType);
     if (startAfterDoc) ref = ref.startAfter(startAfterDoc);
-
     ref
       .get()
       .then(snapshot => {
