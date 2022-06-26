@@ -94,7 +94,7 @@ const ProductResults = ({  }) => {
         חפש מוצרים
       </label>
       <form onSubmit={searchHandler}>
-            <input type="text" placeholder="חפש מוצר.." name="search"
+            <input type="text" placeholder="שם מוצר.." name="search"
               onChange={(e) => setKeyword(e.target.value)}></input>
           </form>
       <FormSelect {...configFilters} />

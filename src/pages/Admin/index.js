@@ -143,53 +143,54 @@ const Admin = props => {
 
             <label style={{ fontSize: 28}}>
               הוספת מוצר חדש
+            </label> <br/><br/>
+            <label style={{ fontSize: 20}}>
+             סוג מוצר:
             </label>
-          
-            <FormSelect
-              label="סוג מוצר"
-              options={[{
-                value: "parts",
-                name: "חלקים"
-              }, {
-                value: "dispensers",
-                name: "מתקני מים"
-              },
-              {
-                value: "filters",
-                name: "פלטרים"
-              }]}
-              handleChange={e => setProductCategory(e.target.value)}
-            />
-
-            <FormInput
+              <div dir="rtl">
+  <select handleChange={e => setProductCategory(e.target.value)} style={{ fontSize: 20}}>
+  <option value='parts' >חלקים</option>
+    <option value='dispensers' >מתקני מים</option>
+    <option value='filters' >פלטרים</option>
+  </select>
+              
+            </div>
+            <label style={{ fontSize: 20}}>
+             שם מוצר:
+            </label><br/>
+            <input
               label="שם מוצר"
               type="text"
               value={productName}
-              handleChange={e => setProductName(e.target.value)}
-            />
-
-            <FormInput
+              onChange={(e) => setProductName(e.target.value)}
+            /><br/>
+            <label style={{ fontSize: 20}}>
+              קישור תמונה:
+            </label><br/>
+            <input
               label="קישור תמונה"
               type="url"
               value={productThumbnail}
-              handleChange={e => setProductThumbnail(e.target.value)}
-            />
-
-            <FormInput
+              onChange={(e) => setProductThumbnail(e.target.value)}
+            /><br/>
+            <label style={{ fontSize: 20}}>
+             מחיר:
+            </label><br/>
+            <input
               label="מחיר"
               type="number"
               min="0.00"
               max="10000.00"
               step="0.01"
               value={productPrice}
-              handleChange={e => setProductPrice(e.target.value)}
-            />
-
+              onChange={(e) => setProductPrice(e.target.value)}
+            /><br/>
+            <label style={{ fontSize: 20}}>
+             תיאור מוצר:
+            </label><br/>
             <CKEditor
               onChange={evt => setProductDesc(evt.editor.getData())}
-            />
-
-            <br />
+            /><br />
 
             <Button type="submit">
               הוסף מוצר
