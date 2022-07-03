@@ -26,10 +26,15 @@ const Booking = () => {
   const [user, setUser] = useState(false);
   const history = useHistory();
   const { currentUser } = useSelector(mapState);
+  const timestamp = new Date();
   var displayName='';
-
+  var c=0;
 
   useEffect(() => {
+    if(c==0){
+      c++;
+    alert("עלות הביקור ₪300 (מחיר לא כולל חלקי חילוף אם צריך)");
+    }
     if (currentUser) {
       logged();
     }
@@ -39,6 +44,12 @@ const Booking = () => {
   const logged = () => {
     displayName=JSON.stringify(currentUser);
   }
+
+  const createdDate=timestamp.getDate()+
+  "/"+(timestamp.getMonth()+1)+
+  "/"+timestamp.getFullYear();
+  const time=timestamp.getHours()+
+  ":"+(timestamp.getMinutes());
 
   const disablePastDate = () => {
     const today = new Date();
@@ -57,8 +68,9 @@ const Booking = () => {
 
     db.collection("booking")
       .add({
+        createdDate: createdDate+ ' '+ time+ ' ',
         name: name,
-        date: dateControl.value,
+        appointmentDate: dateControl.value,
         time: timeControl.value,
         place:placeControl.value,
         phone: phone,
@@ -66,7 +78,7 @@ const Booking = () => {
       })
       .then(() => {
         setLoader(false);
-        alert("תור נשלח בהצלחה");
+        alert("תור נשמר בהצלחה");
       })
       .catch((error) => {
         alert(error.message);
@@ -98,7 +110,7 @@ const Booking = () => {
               placeholder="Name"
               name="Name"
               value={name}
-              handleChange={e => setName(e.target.value)} /><br/>
+              onChange={e => setName(e.target.value)} /><br/>
 
               <><div className="relative">
                 <div className="font-bold text-xl uppercase">
@@ -132,7 +144,7 @@ const Booking = () => {
                   <option value="חיפה">חיפה</option>
                   <option value="תל אביב">תל אביב</option>
                   <option value="מרכז">מרכז</option>
-                  <option value="מחוז ירושלים">מחוז ירושלים</option>
+                  <option value="ירושלים">ירושלים</option>
                   <option value="דרום">דרום</option>
                   <option value="יהודה ושמרון">יהודה ושמרון</option>
                 </select>
@@ -144,7 +156,7 @@ const Booking = () => {
                   name="phone_number"
                   value={phone}
                   pattern="[0][5][0-9]{8}" required
-                  handleChange={e => setPhone(e.target.value)} /><br/>
+                  onChange={e => setPhone(e.target.value)} /><br/>
 
                 <label htmlFor="from">כתובת: </label>
                 <textarea
@@ -153,7 +165,7 @@ const Booking = () => {
                   name="Address"
                   value={address}
                   type="text"
-                  handleChange={e => setAddress(e.target.value)} />
+                  onChange={e => setAddress(e.target.value)} />
                   <br/>
                 <center>
                   <Button

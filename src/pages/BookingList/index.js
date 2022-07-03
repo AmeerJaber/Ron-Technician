@@ -15,7 +15,7 @@ const BookingList = () => {
   
     // Fetch the required data using the get() method
     const Fetchdata = ()=>{
-        db.collection("booking").get().then((querySnapshot) => {
+        db.collection("booking").orderBy('createdDate','desc').get().then((querySnapshot) => {
              
             // Loop through the data and store
             // it in array to display
@@ -44,7 +44,7 @@ const BookingList = () => {
             <Frame key={pos}
                     name={booking.name}
                     address={booking.address}
-                    date={booking.date}
+                    date={booking.appointmentDate}
                     time={booking.time}
                     place={booking.place} 
                     phone={booking.phone}/>
@@ -69,7 +69,7 @@ const Frame = ({name , address , date , time , place , phone}) => {
 
 זמן: {time}<br/>
 
-תאריך: {place}<br/>
+אזור: {place}<br/>
 
 פלפאון: {phone}<br/></p>
    
