@@ -22,6 +22,7 @@ const Admin = props => {
   const [productName, setProductName] = useState('');
   const [productThumbnail, setProductThumbnail] = useState('');
   const [productPrice, setProductPrice] = useState(0);
+  const [productVideo, setProductVideo] = useState('');
   const [productDesc, setProductDesc] = useState('');
   let history = useHistory();
 
@@ -46,6 +47,7 @@ const Admin = props => {
     setProductName('');
     setProductThumbnail('');
     setProductPrice(0);
+    setProductVideo('');
     setProductDesc('');
   };
 
@@ -83,6 +85,7 @@ const Admin = props => {
         productName,
         productThumbnail,
         productPrice,
+        productVideo,
         productDesc,
       })
     );
@@ -159,6 +162,7 @@ const Admin = props => {
              שם מוצר:
             </label><br/>
             <input
+              required
               label="שם מוצר"
               type="text"
               value={productName}
@@ -168,15 +172,26 @@ const Admin = props => {
               קישור תמונה:
             </label><br/>
             <input
+              required
               label="קישור תמונה"
               type="url"
               value={productThumbnail}
               onChange={(e) => setProductThumbnail(e.target.value)}
             /><br/>
             <label style={{ fontSize: 20}}>
+              קישור וידאו:
+            </label><br/>
+            <input
+              label="קישור וידאו"
+              type="url"
+              value={productVideo}
+              onChange={(e) => setProductVideo(e.target.value)}
+            /><br/>
+            <label style={{ fontSize: 20}}>
              מחיר:
             </label><br/>
             <input
+              required
               label="מחיר"
               type="number"
               min="0.00"
@@ -189,6 +204,7 @@ const Admin = props => {
              תיאור מוצר:
             </label><br/>
             <CKEditor
+             required
               onChange={evt => setProductDesc(evt.editor.getData())}
             /><br />
 

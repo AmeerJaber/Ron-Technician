@@ -5,6 +5,7 @@ import { fetchProductStart, setProduct } from './../../redux/Products/products.a
 import { addProduct } from './../../redux/Cart/cart.actions';
 import Button from './../forms/Button';
 import './styles.scss';
+import ReactPlayer from 'react-player'
 
 const mapState = state => ({
   product: state.productsData.product
@@ -20,6 +21,7 @@ const ProductCard = ({}) => {
     productThumbnail,
     productName,
     productPrice,
+    productVideo,
     productDesc,
   } = product;
 
@@ -77,6 +79,8 @@ const ProductCard = ({}) => {
               className="desc"
               dangerouslySetInnerHTML={{ __html: productDesc }} />
           </li>
+          <li> {
+            productVideo ? <><ReactPlayer controls url={`${productVideo}`} /><br /></>:<></> }</li>
         </ul>
       </div>
     </div>
