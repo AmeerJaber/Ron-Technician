@@ -79,8 +79,9 @@ const ProductCard = ({}) => {
               className="desc"
               dangerouslySetInnerHTML={{ __html: productDesc }} />
           </li>
-          <li> {
-            productVideo ? <><ReactPlayer controls url={`${productVideo}`} /><br /></>:<></> }</li>
+          <li>       <div className='player-wrapper'>{
+            productVideo ? <><ReactPlayer className='react-player' controls url={`${productVideo}`} 
+            width='100%' height='100%'/><br /></>:<></> }</div></li>
         </ul>
       </div>
     </div>
