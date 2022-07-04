@@ -14,7 +14,7 @@ const ContactList = () => {
   
     // Fetch the required data using the get() method
     const Fetchdata = ()=>{
-        db.collection("emails").get().then((querySnapshot) => {
+        db.collection("emails").orderBy('createdDate','desc').get().then((querySnapshot) => {
              
             // Loop through the data and store
             // it in array to display
